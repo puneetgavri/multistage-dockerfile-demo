@@ -1,0 +1,15 @@
+FROM python:3.9
+
+WORKDIR /app
+
+# Copy the entire backend source code
+COPY backend/ .
+
+# Install dependencies directly in the image
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose port 5000 for the Flask app
+EXPOSE 5000
+
+# Command to run the app
+CMD ["python", "app.py"]
